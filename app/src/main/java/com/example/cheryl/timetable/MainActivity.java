@@ -58,6 +58,29 @@ public class MainActivity extends AppCompatActivity {
 
         //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_main);
+        View mainView = (View) findViewById(R.id.mainView);
+
+        mainView.setOnTouchListener(new OnSwipeTouchListener() {
+            public boolean onSwipeTop() {
+                Toast.makeText(MainActivity.this, "top", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            public boolean onSwipeRight() {
+                Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            public boolean onSwipeLeft() {
+                Toast.makeText(MainActivity.this, "left", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            public boolean onSwipeBottom() {
+                Toast.makeText(MainActivity.this, "bottom", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
+
+
 
 
         simpleDateformat = new SimpleDateFormat("EEEE");
@@ -65,29 +88,37 @@ public class MainActivity extends AppCompatActivity {
         p.setDay(dayString);
 
         dayBanner= (TextView) findViewById(R.id.day);
+        dayBanner.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
 
         listView = (ListView) findViewById(R.id.gridView);
-        updateView();
-
-        Button left = (Button) findViewById(R.id.left);
-        left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        listView.setOnTouchListener(new OnSwipeTouchListener() {
+            public boolean onSwipeTop() {
+                return true;
+            }
+            public boolean onSwipeRight() {
                 p.previous();
                 updateView();
+
+                return true;
             }
-        });
+            public boolean onSwipeLeft() {
 
-
-        Button right = (Button) findViewById(R.id.right);
-        right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 p.next();
                 updateView();
+
+                return true;
+            }
+            public boolean onSwipeBottom() {
+                return true;
             }
         });
-
+        updateView();
 
     }
 

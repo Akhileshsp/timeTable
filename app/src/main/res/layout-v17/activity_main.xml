@@ -8,13 +8,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.cheryl.timetable.MainActivity"
-    android:background="#181818"
+    android:background="@mipmap/background"
     android:id="@+id/mainView">
 
     <RelativeLayout
            android:id="@+id/headerId"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="wrap_content"
+        android:background="#222">
 
     </RelativeLayout>
 
@@ -24,8 +25,7 @@
             android:id="@+id/gridView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/day"
-            android:background="#181818">
+            android:layout_below="@+id/day">
 
         </ListView>
 
@@ -39,8 +39,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:background="#181818" />
+        android:paddingBottom="3dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,32 +50,8 @@
         android:textSize="22dp"
         android:paddingBottom="10dp"
         android:layout_below="@+id/textClock1"
-        android:layout_centerHorizontal="true"
-        android:background="#181818" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="»"
-        android:id="@+id/right"
-        android:textColor="#fff"
-        android:background="#181818"
-        android:textSize="30dp"
-        android:layout_alignBottom="@+id/day"
         android:layout_alignRight="@+id/gridView"
         android:layout_alignEnd="@+id/gridView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="«"
-        android:id="@+id/left"
-        android:textColor="#fff"
-        android:background="#181818"
-        android:textSize="30dp"
-        android:layout_alignTop="@+id/right"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
